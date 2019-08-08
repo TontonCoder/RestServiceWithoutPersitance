@@ -1,11 +1,22 @@
 package fr.tonelv.rateandco.models;
 
 
-public class Course {
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.io.Serializable;
+
+public class Course implements Serializable {
+
+	@JsonProperty("id")
  private Integer Id;
+ @JsonProperty("name")
  private String Name;
+ @JsonProperty("description")
  private String Description;
+ @JsonProperty("isActive")
  private boolean isActive;
+ @JsonCreator
 public Course(Integer id, String name, String description, boolean isActive) {
 	super();
 	Id = id;
@@ -43,6 +54,14 @@ public boolean isActive() {
 public void setActive(boolean isActive) {
 	this.isActive = isActive;
 }
- 
- 
+
+	@Override
+	public String toString() {
+		return "Course{" +
+				"Id=" + Id +
+				", Name='" + Name + '\'' +
+				", Description='" + Description + '\'' +
+				", isActive=" + isActive +
+				'}';
+	}
 }

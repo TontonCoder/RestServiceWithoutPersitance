@@ -55,8 +55,19 @@ public class CourseRepository implements ICourseRepository {
 
 	@Override
 	public boolean Delete(Integer id) {
-		// TODO Auto-generated method stub
-		return false;
+		//delete from student where name='ravi'
+		String sql = "DELETE FROM course WHERE id="+id;
+		try
+		{
+			Statement statement = conn.createStatement();
+			statement.executeUpdate(sql);
+			return true;
+		}catch (SQLException e)
+		{
+			System.out.println(e.getMessage());
+			return false;
+		}
+
 	}
 
 	@Override
