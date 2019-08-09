@@ -43,7 +43,16 @@ public class CourseRepository implements ICourseRepository {
 
 	@Override
 	public Course Get(Integer id) {
-		// TODO Auto-generated method stub
+		Course course = null;
+		String sql = "SELECT * FROM courses WHERE id="+id;
+		try
+		{
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
@@ -82,7 +91,7 @@ public class CourseRepository implements ICourseRepository {
 			while (rs.next())
 			{
 				//public Course(Integer id, String name, String description, boolean isActive
-				System.out.println(rs.getInt("id") +" - " + rs.getString("name") + " - " + rs.getString("description") + " - " + rs.getString("isActive"));
+				//System.out.println(rs.getInt("id") +" - " + rs.getString("name") + " - " + rs.getString("description") + " - " + rs.getString("isActive"));
 				Course c = new Course(rs.getInt("Id"),rs.getString("name"),rs.getString("description"), rs.getBoolean("isActive"));
 				courses.add(c);
 			}

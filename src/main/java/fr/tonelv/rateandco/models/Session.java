@@ -1,5 +1,7 @@
 package fr.tonelv.rateandco.models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -21,6 +23,7 @@ public class Session {
 
     private User trainer;
 
+    @JsonCreator
 	public Session(Integer id, Date starting, Date ending, Course course, ArrayList<User> students,
 			ArrayList<RateSession> ratesSession, ArrayList<RateStudent> ratesStudents, User trainer) {
 		super();

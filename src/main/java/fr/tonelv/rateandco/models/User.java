@@ -1,5 +1,7 @@
 package fr.tonelv.rateandco.models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 public class User {
 	
 private Integer Id;
@@ -19,6 +21,11 @@ public User(String firstName, String lastName, String username, String hash, boo
 	this.isActive = isActive;
 	this.role = role;
 }
+public User()
+{
+
+}
+@JsonCreator
 public User(Integer id, String firstName, String lastName, String username, String hash, boolean isActive,
 		String role) {
 	super();

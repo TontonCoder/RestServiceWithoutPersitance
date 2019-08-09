@@ -35,6 +35,16 @@ public class CoursesController {
     }
 
     //GetById
+    @GetMapping("/courses/{id}")
+    public ResponseEntity<Course> GetCourseById(@RequestParam Integer id)
+    {
+        Course course = courseRepository.Get(id);
+        if(course != null)
+        {
+            return ResponseEntity.ok(course);
+        }
+        return null;
+    }
 
     //Update
 
